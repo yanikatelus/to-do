@@ -1,14 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+      <ion-buttons slot="end">
+          <ion-button (click)="presentAddNewPrompt();">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title>To Do:</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content padding>
+    <!-- <ion-item-sliding> -->
+    <ion-list *ngFor="let todo of todos">
+        <ion-item-sliding>
+        <ion-item>{{todo}}</ion-item>
+        <ion-item-options>
+            <ion-item-option color="danger" (click)="removeTodo(todo)">
+              <ion-icon slot="start" name="archive"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <!-- <ion-item-options>
+        <ion-item-option color="danger">
+          <ion-icon slot="start" name="archive"></ion-icon>
+          Archive
+        </ion-item-option>
+      </ion-item-options>
+  </ion-item-sliding> -->
+  
+    <!-- <ion-item-options>
+      <button danger (click)="removeItem(todos)"><icon trash></icon> Delete</button>
+    </ion-item-options> -->
+
 </ion-content>
